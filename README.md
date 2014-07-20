@@ -1,5 +1,3 @@
-check on new Mac Mavericks
-
 14/07/19: Install MySQL on Mac Mavericks OS Version 10.9.4
 ----------
 
