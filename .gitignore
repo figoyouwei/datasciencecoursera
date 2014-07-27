@@ -1,4 +1,6 @@
 UCI HAR Dataset/
+*.txt
+*.csv
 Data/
 Material/
 */.Rhistory
