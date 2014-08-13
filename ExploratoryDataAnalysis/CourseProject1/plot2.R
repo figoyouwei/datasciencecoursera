@@ -9,3 +9,7 @@ axis(side=1, at=c(0,1440,2880), labels=c("Thu", "Fri", "Sat"))
 axis(side=2, at=c(0,2,4,6), labels=c(0,2,4,6))
 box()
 dev.off()
+
+## alternative solution
+## this will automatically display dates without manually changing the axes labels
+plot(datplot$Global_active_power~datplot$datetime)
