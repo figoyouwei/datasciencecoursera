@@ -2,11 +2,11 @@
 rm(list=ls())
 cat("\014")
 
-# ----- load dataset 
+# ----- load dataset (set colClasses as vector if necessary)
 datpath <- "./CourseProject1/data/household_power_consumption.txt"
-dat <- read.csv("./CourseProject1/data/household_power_consumption.txt", header=T, sep=';', 
-                     na.strings="?", nrows=2075259, check.names=F, 
-                     stringsAsFactors=F, comment.char="", quote='\"')
+dat <- read.csv("./CourseProject1/data/household_power_consumption.txt", header=T, 
+                sep=';', na.strings="?", nrows=2075259, check.names=F, 
+                stringsAsFactors=F, comment.char="", quote='\"')
 # The above solution is better maybe.
 # dat <- read.table(datpath,sep=";",header=TRUE,colClasses = "character") 
 
