@@ -1,6 +1,7 @@
 UCI HAR Dataset/
 *.txt
 *.csv
+*.rds
 *.key
 Data/
 data/
