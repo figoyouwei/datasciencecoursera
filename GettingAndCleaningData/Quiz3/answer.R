@@ -41,19 +41,19 @@ GDP_Rs <- countriesGDP[-c(1:4,195:330),-which(names(countriesGDP) %in% c("X.1","
 ## merge 
 merged <- base::merge(GDP_Rs,countriesEDU,by.x="ShortCode",by.y="CountryCode")
 
-# ----- Question 4: calculate average of specific group using %in%
+# ----- Question 3: calculate average of specific group using %in%
 library(plyr)
 as.numeric.factor <- function(x) {as.numeric(levels(x))[x]}
 merged$GDP.Ranking <- as.numeric.factor(merged$GDP.Ranking) 
 dataQ4 <- arrange(merged,desc(GDP.Ranking))
 cat(sprintf("%d,%s", nrow(dataQ4), dataQ4[13,"Long.Name.x"]))
 
-# ----- Question 5: xtabs
+# ----- Question 4: xtabs
 merged$Income.Group <- as.character.factor(merged$Income.Group)
 OECD <- mean(merged[merged$Income.Group %in% c("High income: OECD"),"GDP.Ranking"])
 nonOECD <- mean(merged[merged$Income.Group %in% c("High income: nonOECD"),"GDP.Ranking"])
 cat(sprintf("%.5f,%.5f", OECD, nonOECD))
 
-# ----- Question 6: 
+# ----- Question 5: 
 dataQ6 <- arrange(merged,GDP.Ranking)
 sum((dataQ6$Income.Group=="Lower middle income")[1:38])

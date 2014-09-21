@@ -4,6 +4,8 @@ cat("\014")
 # ----- Question 1:
 dataQ1 <- read.table("./Quiz4/Q1.csv",sep=",",header=TRUE)
 varNames <- names(dataQ1)
+l <- strsplit(varNames, "wgtp")
+l[123]
 
 # ----- Question 2:
 ## load data
@@ -35,8 +37,8 @@ june <- grep(pattern="June",fiscal)
 print(paste("Answer 4 is:",length(june)))
 
 # ----- Question 5: 
-# 1. How many values were collected in 2012 ? 
-# 2. How many values were collected on Mondays in 2012?
+# 1. How many values were collected in 2012 ? (250)
+# 2. How many values were collected on Mondays in 2012? (47) not sure why the answer is 47.
 library(quantmod)
 amzn = getSymbols("AMZN",auto.assign=FALSE)
 sampleTimes = index(amzn)
@@ -46,4 +48,5 @@ library(lubridate)
 amazon$byMonth <- floor_date(amazon$date, "month")
 sum(year(amazon$byMonth) == 2012 & wday(amazon$byMonth) == 2)
 y2012 <- which(year(amazon$byMonth) == 2012)
-sum(wday(amazon$byMonth[y2012]) == ) 
+sum(wday(amazon$byMonth) == 2) 
+print(paste("Answer 4 is:",length(y2012)))

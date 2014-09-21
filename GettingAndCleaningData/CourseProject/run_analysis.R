@@ -55,6 +55,7 @@ dataset_train <- cbind(subject_train,activity_train,features_train)
 # merge test and train dataset with rbind
 dataSET <- rbind(dataset_test,dataset_train)
 
+
 # ----- 2. Uses descriptive activity names to name the activities in the data set.
 cols <- c(2)
 dataSET[,cols] <- data.frame(apply(dataSET[cols], 2, as.factor))
@@ -68,7 +69,7 @@ cols <- c(grep('mean', colnames(dataSET), value=TRUE),
           grep('std', colnames(dataSET), value=TRUE))    
 extracted <- dataSET[,c("SubjectID","ActivityID",cols)]
 write.table(extracted,
-            "/Users/youweizheng/Google Drive/githubrepo/datasciencecoursera/GettingAndCleaningData/CourseProject/dataset1_extracted.txt",
+            "/Users/youweizheng/Google Drive/githubrepo/datasciencecoursera/GettingAndCleaningData/CourseProject/dataset_step2.txt",
             sep=",",row.names=FALSE)
 
 # ----- 5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
@@ -88,5 +89,5 @@ for (i in seq(from=3,to=81,by=1)) {
     colnames(dfNo2)[i] <- collabels[i]    
 }
 write.table(dfNo2,
-            "/Users/youweizheng/Google Drive/githubrepo/datasciencecoursera/GettingAndCleaningData/CourseProject/dataset2_meanstd.txt",
+            "/Users/youweizheng/Google Drive/githubrepo/datasciencecoursera/GettingAndCleaningData/CourseProject/dataset_step5.txt",
             sep=",",row.names=FALSE)

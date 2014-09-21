@@ -3,7 +3,7 @@ source("load_data.R")
 ## 1. Have total emissions from PM2.5 decreased in the United States from 1999 to 2008?
 NEI$year <- as.factor(NEI$year)
 NEI$Pollutant <- as.factor(NEI$Pollutant)
-total_emissions_over_years <- tapply(NEI$Emissions, NEI$year, sum)
+total_emissions_over_years <- with(NEI, tapply(Emissions, year, sum))
 png(file="./plot1.png",width=480, height=480)
 # las: 0=parallel, 1=all horizontal, 2=all perpendicular to axis, 3=all vertical
 plot1bar <- barplot(total_emissions_over_years, main="Total Emissions from PM2.5", 

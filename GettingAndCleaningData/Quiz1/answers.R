@@ -1,15 +1,19 @@
 rm(list=ls())
 cat("\014")
 
-# ----- Q1
+## ----- Q1
 fileURL_Q1 <- "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv"
 download.file(fileURL_Q1,destfile="./Data/Quiz1_Q1.csv",method="curl")
 fileURL_pdf <- "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FPUMSDataDict06.pdf"
 download.file(fileURL_pdf,destfile="./Data/Quiz1_Q1.pdf",method="curl")
 data_Q1 <- read.table("./Data/Quiz1_Q1.csv",sep=",",header=TRUE)
 # found variable name from cookbook, and calculate 
-indices <- data_Quiz_Q1$VAL >= 24
+indices <- data_Q1$VAL >= 24
 sum(indices, na.rm=TRUE)
+
+
+## ----- Q2 
+# Tidy data has one variable per column.
 
 # ----- Q3
 fileURL_Q3 <- "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FDATA.gov_NGAP.xlsx"
